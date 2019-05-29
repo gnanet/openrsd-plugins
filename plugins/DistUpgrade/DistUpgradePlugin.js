@@ -1,6 +1,43 @@
 function deCapitalizeFirstLetter(string) {
         return string.charAt(0).toLowerCase() + string.slice(1);
 }
+function dashAddUpgradeLink() {
+    var anchor = document.querySelectorAll("#pageContent > div > div > div > div > div.panel-body > p > a");
+    var i;
+    for (i = 0; i < anchor.length; i++) {
+        if ( anchor[i].text == "Go to Packages" ) {
+            var t = document.createTextNode(" | ");
+            anchor[i].after(t);
+            var dulink = document.createElement("a");
+            dulink.text = "or to Distupgrade";
+            dulink.setAttribute("onclick", "pageLoad('distupgrade');");
+            dulink.href = "#";
+            t.after(dulink);
+        }
+    }
+}
+pageLoad = function(page){
+    document.title = "Loading..."
+    document.getElementById("pageContent").innerHTML = "<p>Loading " + page + ", Please wait...</p>";
+    load(true);
+    $.ajax({
+        method:'post',
+        url:'./page.php',
+        data:{
+            page:page
+        },
+        success:function(result) {
+            document.getElementById("pageContent").innerHTML = result;
+            document.title = capitalizeFirstLetter(page);
+            load(false);
+            if ( page == "dashboard" ) { dashAddUpgradeLink(); }
+        }
+        }).fail(function(e) {
+            document.getElementById("pageContent").innerHTML = "Loading the page failed. Please try again.";
+            genModal("Error", "Loading the page failed. Please try again.");
+            load(false);
+        });
+}
 apt_update = function (){
     $('#pageContent > div.row > div.col-lg-12 > h1 > small > button.btn.btn-raised.btn-info').removeClass('btn-info').addClass('btn-outline-info disabled');
     $('#pageContent > div.row > div.col-lg-12 > h1 > small > button.btn.btn-raised.btn-warning').removeClass('btn-warning').addClass('btn-outline-warning disabled');
