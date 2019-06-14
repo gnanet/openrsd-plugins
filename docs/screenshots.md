@@ -1,6 +1,6 @@
-#Screenshots of Plugins
+# Screenshots of Plugins
 
-##OpenRSD Plugins, with the currently working features, displayed on the Dashboard:
+## OpenRSD Plugins, with the currently working features, displayed on the Dashboard:
 
 - Extra menu outside "Custom Pages"
 - Extra link in the Updates block
@@ -8,7 +8,7 @@
 
     ![OpenRSD Plugins current working feature on Dashboard](img/openrsd-dash-w-hostap-distupgrade-and-menu.jpg?raw=true "OpenRSD Plugins current working feature on Dashboard")
 
-##Distupgrade plugin
+## Distupgrade plugin
 
 - The plugin page, showing upgrades, newly installed packages
 
