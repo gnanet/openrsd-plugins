@@ -24,4 +24,11 @@ Specialities of the plugin besides the initial goal of dist-upgrade, are:
  - it replaces a javascrript function from the core
  - it can place iit's menu entry using DOM manipulation below the Packages menuitem
  - Using the **download-only** mode it preloads the upgraded packages
- - It tries to display the package changelog using the downloaded packages
+ - It tries to display the package changelog using the downloaded packages.
+
+     for the package changelog to function you are required to install  **apt-listchanges** and it is suggested to install **needrestart**:
+     `sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get -y install apt-listchanges needrestart`
+
+### Documentation / Screenshots
+
+There may be more detail about the plugins, but to get a quick impression, [i made some screenshots, you can see them here.](docs/screenshots.md)
